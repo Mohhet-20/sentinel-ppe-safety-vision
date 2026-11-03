@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/shield.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0a0e14" />
+    <title>Sentinel · AI Workplace Safety Platform</title>
+    <meta
+      name="description"
+      content="Full-stack computer-vision platform that detects missing PPE in images, video and live cameras, and turns every violation into a tracked incident. Try the real YOLOv8 model in your browser."
+    />
+
+    <!-- Social previews (LinkedIn, Slack, X). og:image should be absolute once deployed. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sentinel · AI Workplace Safety Platform" />
+    <meta
+      property="og:description"
+      content="Real-time PPE detection with YOLOv8, incident management and a live safety command center. Runs in your browser, no sign-up."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link
+      rel="preload"
+      as="image"
+      href="/samples/rail-bridge-crew-1280.webp"
+      imagesrcset="/samples/rail-bridge-crew-800.webp 800w, /samples/rail-bridge-crew-1280.webp 1280w"
+      imagesizes="(min-width: 1024px) 640px, 100vw"
+      type="image/webp"
+    />
+  </head>
+  <body class="bg-background text-foreground antialiased">
+    <noscript>Sentinel is an interactive app: please enable JavaScript.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

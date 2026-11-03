@@ -1,0 +1,43 @@
+# --- Node / frontend ---
+node_modules
+dist
+dist-ssr
+*.local
+*.tsbuildinfo
+.env
+.env.local
+!.env.example
+!.env.demo
+
+# --- Test artifacts ---
+test-results/
+playwright-report/
+coverage/
+
+# --- Local databases / logs (the backend creates and seeds these on startup) ---
+*.db
+*.log
+
+# --- ML workspace: datasets, training runs and checkpoints are multi-GB ---
+ml/dataset/
+ml/staging/
+ml/runs/
+ml/pretrained/
+ml/*.zip
+backend/runs/
+backend/uploads/
+backend/logs/
+backend/yolo11n.pt
+
+# --- Editor / OS ---
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Copied from node_modules at build time (scripts/copy-ort-runtime.mjs)
+public/ort/
+
+# --- Local AI-assistant settings ---
+.claude/

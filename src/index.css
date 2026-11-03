@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   SENTINEL — Dark Cyber-Noir Design System
+   A monitoring-room aesthetic: near-black charcoal-blue base,
+   safety-hazard amber as the primary signal, detection-cyan
+   for AI/vision data, danger-red for incidents.
+   ============================================================ */
+
+@layer base {
+  :root.dark {
+    --background: #0a0e14;
+    --foreground: #e4e9f0;
+
+    --card: #12171f;
+    --card-foreground: #e4e9f0;
+
+    --popover: #151b24;
+    --popover-foreground: #e4e9f0;
+
+    --primary: #ff9f1c;
+    --primary-foreground: #17120a;
+
+    --secondary: #1b232f;
+    --secondary-foreground: #e4e9f0;
+
+    --muted: #161c25;
+    --muted-foreground: #8b97a8;
+
+    --accent: #1b232f;
+    --accent-foreground: #e4e9f0;
+
+    --destructive: #ff3b3b;
+    --destructive-foreground: #fff5f5;
+
+    --border: #232b37;
+    --input: #232b37;
+    --ring: #ff9f1c;
+
+    /* signal palette */
+    --hazard: #ff9f1c;
+    --hazard-foreground: #17120a;
+    --detect: #00d9ff;
+    --detect-foreground: #06212b;
+    --danger: #ff3b3b;
+    --danger-foreground: #fff5f5;
+    --success: #2ecc71;
+    --success-foreground: #072e17;
+
+    --grid-line: rgba(139, 151, 168, 0.06);
+    --radius: 0.5rem;
+  }
+
+  :root.light {
+    --background: #f4f6f9;
+    --foreground: #101722;
+
+    --card: #ffffff;
+    --card-foreground: #101722;
+
+    --popover: #ffffff;
+    --popover-foreground: #101722;
+
+    --primary: #d97e0a;
+    --primary-foreground: #ffffff;
+
+    --secondary: #e9edf3;
+    --secondary-foreground: #101722;
+
+    --muted: #eef1f5;
+    --muted-foreground: #5b6675;
+
+    --accent: #e9edf3;
+    --accent-foreground: #101722;
+
+    --destructive: #dc2626;
+    --destructive-foreground: #ffffff;
+
+    --border: #dfe4eb;
+    --input: #dfe4eb;
+    --ring: #d97e0a;
+
+    --hazard: #d97e0a;
+    --hazard-foreground: #ffffff;
+    --detect: #0891b2;
+    --detect-foreground: #ffffff;
+    --danger: #dc2626;
+    --danger-foreground: #ffffff;
+    --success: #16a34a;
+    --success-foreground: #ffffff;
+
+    --grid-line: rgba(16, 23, 34, 0.045);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: var(--tw-bg-grid, none);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide;
+  }
+  ::selection {
+    background-color: rgba(255, 159, 28, 0.25);
+    color: var(--foreground);
+  }
+  /* visible keyboard focus, respected everywhere */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #232b37;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2c3644;
+  }
+}
+
+@layer utilities {
+  /* Ambient background grid + vignette, used on the app shell */
+  .bg-ambient {
+    background-color: var(--background);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 159, 28, 0.06), transparent),
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: auto, 44px 44px, 44px 44px;
+  }
+
+  /* Signature element: HUD corner-bracket frame, evokes a
+     camera viewfinder / detection bounding box */
+  .hud-panel {
+    position: relative;
+  }
+  .hud-panel::before,
+  .hud-panel::after,
+  .hud-panel > .hud-corner-tr,
+  .hud-panel > .hud-corner-bl {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+  }
+  .hud-panel::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid var(--corner-color, var(--hazard));
+    border-left: 2px solid var(--corner-color, var(--hazard));
+    border-top-left-radius: 4px;
+  }
+  .hud-panel::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid var(--corner-color, var(--hazard));
+    border-right: 2px solid var(--corner-color, var(--hazard));
+    border-bottom-right-radius: 4px;
+  }
+
+  .text-mono-tight {
+    @apply font-mono tracking-tight tabular-nums;
+  }
+
+  .divider-hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+  }
+}
