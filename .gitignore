@@ -39,3 +39,7 @@ Thumbs.db
 # Copied from node_modules at build time (scripts/copy-ort-runtime.mjs)
 public/ort/
 
+
+# Python bytecode caches
+__pycache__/
+*.py[cod]
