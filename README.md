@@ -22,8 +22,7 @@
 
 ## Live demo
 
-> **[▶ Open the live demo](#)** (no sign-up, nothing to install)
-> <sub>Replace `#` with your deployment URL. See [Deploying](#deploying).</sub>
+> **[▶ Open the live demo](https://sentinel-ppe-safety-visionn.vercel.app)** (no sign-up, nothing to install)
 
 The public demo is a static site, yet nothing in it is faked. The production
 detection model is exported to ONNX and runs **in your browser** with
